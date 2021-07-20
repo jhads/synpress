@@ -1,5 +1,9 @@
 const notificationPage = '.notification';
 const nextButton = `${notificationPage} .permissions-connect-choose-account__bottom-buttons button:nth-child(2)`;
+const allowToSpendButton = `${notificationPage} [data-testid="page-container-footer-next"]`;
+const rejectToSpendButton = `${notificationPage} [data-testid="page-container-footer-cancel"]`;
+const signButton = `${notificationPage} [data-testid="request-signature__sign"]`;
+const cancelSignatureButton = `${notificationPage} .button btn-default btn--large request-signature__footer__cancel-button`;
 
 const permissionsPage = '.permissions-connect';
 const connectButton = `${permissionsPage} .permission-approval-container__footers button:nth-child(2)`;
@@ -14,17 +18,21 @@ const totalLabel = `${confirmPageContent} div:nth-child(2) > .confirm-detail-row
 const rejectButton = `${confirmPageContent} [data-testid="page-container-footer-cancel"]`;
 const confirmButton = `${confirmPageContent} [data-testid="page-container-footer-next"]`;
 
-export const notificationPageElements = {
+module.exports.notificationPageElements = {
   notificationPage,
   nextButton,
+  allowToSpendButton,
+  rejectToSpendButton,
+  signButton,
+  cancelSignatureButton
 };
 
-export const permissionsPageElements = {
+module.exports.permissionsPageElements = {
   permissionsPage,
   connectButton,
 };
 
-export const confirmPageElements = {
+module.exports.confirmPageElements = {
   notificationPage,
   confirmPageHeader,
   confirmPageContent,

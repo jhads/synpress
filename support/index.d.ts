@@ -99,6 +99,18 @@ declare namespace Cypress {
      * @example
      * cy.acceptMetamaskAccess()
      */
+     signMetamaskTransaction(): Chainable<Subject>;
+     /**
+      * Clicks sign on Metamask notification
+      * @example
+      * cy.signMetamaskTransaction()
+      */
+     cancelMetamaskSignature(): Chainable<Subject>;
+     /**
+      * Cancels signature on Metamask
+      * @example
+      * cy.cancelMetamaskSignature()
+      */
     acceptMetamaskAccess(): Chainable<Subject>;
     /**
      * Confirm metamask atransaction
