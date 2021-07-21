@@ -16,6 +16,7 @@ const {
   confirmPageElements,
 } = require('../pages/metamask/notification-page');
 const { setNetwork, getNetwork } = require('../helpers');
+const { transactionDetails } = require('../pages/metamask/transaction-details')
 
 let walletAddress;
 
@@ -278,6 +279,18 @@ module.exports = {
     );
     await puppeteer.waitAndClick(mainPageElements.accountModal.closeButton);
     return walletAddress;
+  },
+  getLatestTransactionId: async () => {
+    await puppeteer.waitAndClick(mainPageElements.activity.activityTab);
+    await puppeteer.evaluate(() => {
+      let transactions = document.getElementsByClassName(mainPageElements.transactions.transactionsList);
+       await puppeteer.waitAndClick(transactions[0])
+    });
+    await puppeteer.waitAndClick(transactionDetails.copyTxButton)
+   
+    txId = await navigator.clipboard.readText();
+    await puppeteer.waitAndClick(transactionDetails.closeButon);
+    return txId;
   },
   initialSetup: async ({ secretWords, network, password }) => {
     const isCustomNetwork =

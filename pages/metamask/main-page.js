@@ -44,6 +44,14 @@ const accountModal = {
   closeButton: '.account-modal__close',
 };
 
+const activity = {
+  activityTab: '[data-testid="home__activity-tab"]'
+}
+
+const transactions = {
+  transactionsList: '.transaction-list__completed-transactions'
+}
+
 export const mainPageElements = {
   networkSwitcher,
   walletOverview,
@@ -54,4 +62,6 @@ export const mainPageElements = {
   addNetworkPage,
   options,
   accountModal,
+  activity,
+  transactions
 };

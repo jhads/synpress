@@ -99,18 +99,24 @@ declare namespace Cypress {
      * @example
      * cy.acceptMetamaskAccess()
      */
-     signMetamaskTransaction(): Chainable<Subject>;
+    signMetamaskTransaction(): Chainable<Subject>;
      /**
       * Clicks sign on Metamask notification
       * @example
       * cy.signMetamaskTransaction()
       */
-     cancelMetamaskSignature(): Chainable<Subject>;
+    cancelMetamaskSignature(): Chainable<Subject>;
      /**
       * Cancels signature on Metamask
       * @example
       * cy.cancelMetamaskSignature()
       */
+    getLatestTransactionId(): Chainable<Subject>;
+      /**
+       * Gets the first tx on Metamask
+       * @example
+       * cy.getLatestTransactionId()
+       */ 
     acceptMetamaskAccess(): Chainable<Subject>;
     /**
      * Confirm metamask atransaction

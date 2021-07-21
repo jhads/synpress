@@ -131,6 +131,10 @@ module.exports = (on, config) => {
       const walletAddress = await metamask.getWalletAddress();
       return walletAddress;
     },
+    getLatestTransactionId: async () => {
+      const txId = await metamask.getLatestTransactionId();
+      return txId
+    },
     fetchMetamaskWalletAddress: async () => {
       return metamask.walletAddress();
     },

@@ -84,6 +84,12 @@ Cypress.Commands.add('fetchMetamaskWalletAddress', () => {
   });
 });
 
+Cypress.Commands.add('getLatestTransactionId', () => {
+  cy.task('getLatestTransactionId').then(txId => {
+    return txId;
+  });
+});
+
 Cypress.Commands.add(
   'setupMetamask',
   (secretWords, network, password = 'Tester@1234') => {
