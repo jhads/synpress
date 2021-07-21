@@ -282,13 +282,9 @@ module.exports = {
   },
   getLatestTransactionId: async () => {
     await puppeteer.waitAndClick(mainPageElements.activity.activityTab);
-    await puppeteer.evaluate(() => {
-      let transactions = document.getElementsByClassName(mainPageElements.transactions.transactionsList);
-       await puppeteer.waitAndClick(transactions[0])
-    });
-    await puppeteer.waitAndClick(transactionDetails.copyTxButton)
-   
-    txId = await navigator.clipboard.readText();
+    await puppeteer.waitAndClick(mainPageElements.transactions.transactionsList);
+    
+    const txId = await puppeteer.waitAndClick(transactionDetails.copyTxButton);
     await puppeteer.waitAndClick(transactionDetails.closeButon);
     return txId;
   },
