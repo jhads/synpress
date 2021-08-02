@@ -16,7 +16,8 @@ const {
   confirmPageElements,
 } = require('../pages/metamask/notification-page');
 const { setNetwork, getNetwork } = require('../helpers');
-const { transactionDetails } = require('../pages/metamask/transaction-details')
+const { transactionDetails } = require('../pages/metamask/transaction-details');
+const { accountPageElements } = require('@synthetixio/synpress/pages/metamask/accounts-page');
 
 let walletAddress;
 
@@ -287,6 +288,23 @@ module.exports = {
     const txId = await puppeteer.waitAndClick(transactionDetails.copyTxButton);
     await puppeteer.waitAndClick(transactionDetails.closeButon);
     return txId;
+  },
+  createMetamaskAccount: async () => {
+    await puppeteer.waitAndClick(mainPageElements.accountMenu.button);
+    await puppeteer.waitAndClick(accountPageElements.mainOptions.createAccountButton);
+    await puppeteer.waitAndClick(accountPageElements.createAccountElements.createButton);
+    return true;
+  },
+  selectMetamaskAccount: async (index) => {
+    await puppeteer.waitAndClick(mainPageElements.accountMenu.button);
+    if (index == 0) {
+      await puppeteer.waitAndClick('#app-content > div > div.account-menu > div.account-menu__accounts-container > div > div:nth-child(0)');
+      await puppeteer.waitAndClick('#app-content > div > div.account-menu > div.account-menu__accounts-container > div > div:nth-child(0)');
+    } else  if (index == 1) {
+      await puppeteer.waitAndClick('#app-content > div > div.account-menu > div.account-menu__accounts-container > div > div:nth-child(1)');
+      await puppeteer.waitAndClick('#app-content > div > div.account-menu > div.account-menu__accounts-container > div > div:nth-child(1)');
+    }
+    return true;
   },
   initialSetup: async ({ secretWords, network, password }) => {
     const isCustomNetwork =

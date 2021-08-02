@@ -86,6 +86,14 @@ module.exports = (on, config) => {
       const imported = await metamask.importWallet(secretWords, password);
       return imported;
     },
+    createMetamaskAccount: async () => {
+      const created = await metamask.createMetamaskAccount();
+      return created;
+    },
+    selectMetamaskAccount: async () => {
+      const selected = await metamask.selectMetamaskAccount();
+      return selected;
+    },
     addMetamaskNetwork: async network => {
       const networkAdded = await metamask.addNetwork(network);
       return networkAdded;

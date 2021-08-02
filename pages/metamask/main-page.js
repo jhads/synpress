@@ -14,6 +14,7 @@ const popup = {
 const accountMenu = {
   button: '.account-menu__icon',
   settingsButton: '.account-menu__item--clickable:nth-child(11)',
+  importAccountButton: '#app-content > div > div.account-menu > div:nth-child(7) > div.account-menu__item__text'
 };
 
 const settingsPage = {

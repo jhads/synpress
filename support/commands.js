@@ -20,6 +20,19 @@ Cypress.Commands.add(
   },
 );
 
+Cypress.Commands.add(
+  'createMetamaskAccount', () => {
+    return cy.task('createMetamaskAccount');
+  },
+);
+
+Cypress.Commands.add(
+  'selectMetamaskAccount',
+  (index) => {
+    return cy.task('selectMetamaskAccount', { index });
+  },
+);
+
 Cypress.Commands.add('addMetamaskNetwork', network => {
   return cy.task('addMetamaskNetwork', network);
 });
